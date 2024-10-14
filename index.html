@@ -1,1 +1,371 @@
-# allinone
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUMEROLOGIA</title>
+    <style>
+
+/*
+*   FORMULARIO DATOS USUARIO
+*/
+.formularioUsuario{
+    display: block;
+}
+
+
+
+
+/*
+*   DIAGRAMA PINACULO
+*/
+.pinaculo{
+    display: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.diagram {
+    position: relative;
+    width: 950px;
+    height: 600px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.box {
+    position: absolute;
+    border: 1px solid black;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    background-color: white;
+    width: 80px;
+    height: 50px;
+}
+.box .number {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+.box .name {
+    text-transform: uppercase;
+}
+.line {
+    position: absolute;
+    background-color: black;
+    transform-origin: 0 0;
+}
+
+/* Positioning for each box */
+#destino { top: 20px; left: 350px; }
+#realizacion2 { top: 80px; left: 250px; }
+#compatibilidad { top: 80px; left: 500px; }
+#programa { top: 140px; left: 150px; }
+#realizacion1 { top: 140px; left: 350px; }
+#karma { top: 200px; left: 50px; }
+#esencia { top: 200px; left: 250px; }
+#talento { top: 200px; left: 450px; }
+#mascara { top: 200px; left: 600px; }
+#reaccion { top: 200px; left: 700px; }
+#mision { top: 200px; left: 800px; width: 120px; }
+#obstaculo4 { top: 260px; left: 150px; }
+#sombra { top: 260px; left: 550px; }
+#obstaculo1 { top: 320px; left: 50px; }
+#obstaculo2 { top: 320px; left: 250px; }
+#inconsciente { top: 320px; left: 150px; }
+#obstaculo3 { top: 380px; left: 150px; }
+#triplicidad { top: 380px; left: 350px; }
+#n1 { top: 440px; left: 50px; }
+#n2 { top: 440px; left: 150px; }
+#n3 { top: 440px; left: 250px; }
+#ser-inferior { top: 500px; left: 100px; width: 200px; border: none; }
+#ausencia { top: 260px; right: 20px; border: 1px solid black; }
+
+
+    </style>
+</head>
+<body>
+    <div id="formularioUsuario" class="formularioUsuario">
+        <form id="personalForm" class="form-card">
+            <h1>Calcula tu numerología</h1>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" name="apellidos" required>
+            </div>
+            <div class="form-group">
+                <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" required>
+            </div>
+            <button type="submit">Calcular</button>
+        </form>
+    </div>
+    <div id="pinaculo" class="pinaculo">
+        <div id="nombreUsuario" class="nombreUsuario"></div>
+        <div class="diagram">
+            <!-- Aqui van los elementos del pináculo -->
+            <div id="destino" class="box">
+                <span class="number"></span>
+                <span class="name">DESTINO</span>
+            </div>
+            <div id="realizacion2" class="box">
+                <span class="number"></span>
+                <span class="name">REALIZACIÓN 2</span>
+            </div>
+            <div id="compatibilidad" class="box">
+                <span class="number"></span>
+                <span class="name">COMPATIBILIDAD</span>
+            </div>
+            <div id="programa" class="box">
+                <span class="number"></span>
+                <span class="name">PROGRAMA</span>
+            </div>
+            <div id="realizacion1" class="box">
+                <span class="number"></span>
+                <span class="name">REALIZACIÓN 1</span>
+            </div>
+            <div id="karma" class="box">
+                <span class="number"></span>
+                <span class="name">KARMA</span>
+            </div>
+            <div id="esencia" class="box">
+                <span class="number"></span>
+                <span class="name">ESENCIA</span>
+            </div>
+            <div id="talento" class="box">
+                <span class="number"></span>
+                <span class="name">TALENTO</span>
+            </div>
+            <div id="mascara" class="box">
+                <span class="number"></span>
+                <span class="name">MÁSCARA</span>
+            </div>
+            <div id="reaccion" class="box">
+                <span class="number"></span>
+                <span class="name">REACCIÓN</span>
+            </div>
+            <div id="mision" class="box">
+                <span class="number"></span>
+                <span class="name">MISIÓN</span>
+            </div>
+            <div id="obstaculo4" class="box">
+                <span class="number"></span>
+                <span class="name">OBSTÁCULO 4</span>
+            </div>
+            <div id="sombra" class="box">
+                <span class="number"></span>
+                <span class="name">SOMBRA</span>
+            </div>
+            <div id="obstaculo1" class="box">
+                <span class="number"></span>
+                <span class="name">OBSTÁCULO 1</span>
+            </div>
+            <div id="obstaculo2" class="box">
+                <span class="number"></span>
+                <span class="name">OBSTÁCULO 2</span>
+            </div>
+            <div id="inconsciente" class="box">
+                <span class="number"></span>
+                <span class="name">INCONSCIENTE NEGATIVO</span>
+            </div>
+            <div id="obstaculo3" class="box">
+                <span class="number"></span>
+                <span class="name">OBSTÁCULO 3</span>
+            </div>
+            <div id="triplicidad" class="box">
+                <span class="number"></span>
+                <span class="name">TRIPLICIDAD</span>
+            </div>
+            <div id="n1" class="box">
+                <span class="number"></span>
+                <span class="name">N1</span>
+            </div>
+            <div id="n2" class="box">
+                <span class="number"></span>
+                <span class="name">N2</span>
+            </div>
+            <div id="n3" class="box">
+                <span class="number">20</span>
+                <span class="name">N3</span>
+            </div>
+            <div id="ser-inferior" class="box">
+                <span class="name">SER INFERIOR</span>
+            </div>
+            <div id="ausencia" class="box">
+                <span class="number">21</span>
+                <span class="name">AUSENCIA</span>
+            </div>
+        </div>
+    </div>
+    
+        <script src="script.js">
+document.addEventListener('DOMContentLoaded', function() {
+    const formulario = document.getElementById('personalForm');
+    const formularioUsuario = document.getElementById('formularioUsuario');
+    const pinaculo = document.getElementById('pinaculo');
+    const nombreUsuario = document.getElementById('nombreUsuario');
+
+    function reducirNumero(numero) {
+        if ([11, 22].includes(numero)) return numero;
+        while (numero > 9 && ![11, 22].includes(numero)) {
+            numero = String(numero).split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+        }
+        return numero;
+    }
+
+    function reducirParaResta(numero) {
+        if (numero === 11 || numero === 22) {
+            return String(numero).split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
+        }
+        return numero;
+    }
+
+    function calcularNumerologia(fechaNacimiento) {
+        const [año, mes, dia] = fechaNacimiento.split('-');
+        const esencia = reducirNumero(dia.split('').reduce((a, b) => parseInt(a) + parseInt(b), 0));
+        const karma = reducirNumero(mes.split('').reduce((a, b) => parseInt(a) + parseInt(b), 0));
+        const talento = reducirNumero(año.split('').reduce((a, b) => parseInt(a) + parseInt(b), 0));
+        const programa = reducirNumero(esencia + karma);
+        return { esencia, karma, talento, programa };
+    }
+
+    function actualizarPinaculo({ esencia, karma, talento, programa }) {
+        document.querySelector('#esencia .number').textContent = esencia;
+        document.querySelector('#karma .number').textContent = karma;
+        document.querySelector('#talento .number').textContent = talento;
+        document.querySelector('#programa .number').textContent = programa;
+
+        const mascara = reducirNumero(parseInt(karma) + parseInt(esencia) + parseInt(talento));
+        document.querySelector('#mascara .number').textContent = mascara;
+
+        const reaccion = reducirNumero(parseInt(esencia) + parseInt(mascara));
+        document.querySelector('#reaccion .number').textContent = reaccion;
+
+        const mision = reducirNumero(parseInt(karma) + parseInt(esencia) + parseInt(talento) + parseInt(mascara) + parseInt(reaccion));
+        document.querySelector('#mision .number').textContent = mision;
+
+        const realizacion1 = reducirNumero(parseInt(esencia) + parseInt(talento));
+        document.querySelector('#realizacion1 .number').textContent = realizacion1;
+
+        const realizacion2 = reducirNumero(parseInt(programa) + parseInt(realizacion1));
+        document.querySelector('#realizacion2 .number').textContent = realizacion2;
+
+        const destino = reducirNumero(parseInt(karma) + parseInt(talento));
+        document.querySelector('#destino .number').textContent = destino;
+
+        const compatibilidad = reducirNumero(parseInt(destino) + parseInt(mascara));
+        document.querySelector('#compatibilidad .number').textContent = compatibilidad;
+
+        const karmaReducido = reducirParaResta(karma);
+        const esenciaReducida = reducirParaResta(esencia);
+        const talentoReducido = reducirParaResta(talento);
+        
+        const obstaculo1 = Math.abs(karmaReducido - esenciaReducida);
+        document.querySelector('#obstaculo1 .number').textContent = obstaculo1;
+
+        const obstaculo2 = Math.abs(esenciaReducida - talentoReducido);
+        document.querySelector('#obstaculo2 .number').textContent = obstaculo2;
+
+        const obstaculo3 = Math.abs(obstaculo1 - obstaculo2);
+        document.querySelector('#obstaculo3 .number').textContent = obstaculo3;
+
+        const obstaculo4 = Math.abs(karmaReducido - talentoReducido);
+        document.querySelector('#obstaculo4 .number').textContent = obstaculo4;
+
+        const inconscienteNegativo = reducirNumero(obstaculo1 + obstaculo2 + obstaculo3);
+        document.querySelector('#inconsciente .number').textContent = inconscienteNegativo;
+
+        const sombra = reducirNumero(mascara + inconscienteNegativo);
+        document.querySelector('#sombra .number').textContent = sombra;
+
+        const n1 = reducirNumero(obstaculo1 + obstaculo3);
+        document.querySelector('#n1 .number').textContent = n1;
+
+        const n2 = reducirNumero(obstaculo2 + obstaculo3);
+        document.querySelector('#n2 .number').textContent = n2;
+
+        const n3 = reducirNumero(n1 + n2);
+        document.querySelector('#n3 .number').textContent = n3;
+
+        // Calcular ausencia
+        const todosNumeros = [esencia, karma, talento, programa, mascara, reaccion, mision, realizacion1, realizacion2, destino, compatibilidad, obstaculo1, obstaculo2, obstaculo3, obstaculo4, inconscienteNegativo, sombra, n1, n2, n3];
+        const numerosUnicos = [...new Set(todosNumeros)];
+        let ausencia = [];
+
+        for (let i = 1; i <= 9; i++) {
+            if (!numerosUnicos.includes(i)) {
+                ausencia.push(i);
+            }
+        }
+
+        document.querySelector('#ausencia .number').textContent = ausencia.join(' - ');
+
+        // Calcular triplicidad
+        const frecuencias = {};
+        todosNumeros.forEach(num => {
+            frecuencias[num] = (frecuencias[num] || 0) + 1;
+        });
+
+        const triplicidades = Object.entries(frecuencias).filter(([num, freq]) => freq >= 3).map(([num]) => parseInt(num));
+        const triplicidad = reducirNumero(triplicidades.reduce((acc, num) => acc + num, 0));
+
+        document.querySelector('#triplicidad .number').textContent = triplicidad;
+
+        console.log('Máscara:', mascara);
+        console.log('Reacción:', reaccion);
+        console.log('Misión:', mision);
+        console.log('Realización 1:', realizacion1);
+        console.log('Realización 2:', realizacion2);
+        console.log('Destino:', destino);
+        console.log('Compatibilidad:', compatibilidad);
+        console.log('Obstáculo 1:', obstaculo1);
+        console.log('Obstáculo 2:', obstaculo2);
+        console.log('Obstáculo 3:', obstaculo3);
+        console.log('Obstáculo 4:', obstaculo4);
+        console.log('Inconsciente Negativo:', inconscienteNegativo);
+        console.log('Sombra:', sombra);
+        console.log('N1:', n1);
+        console.log('N2:', n2);
+        console.log('N3:', n3);
+        console.log('Ausencia:', ausencia.join(' - '));
+        console.log('Triplicidad:', triplicidad);
+    }
+
+    formulario.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value;
+        const apellidos = document.getElementById('apellidos').value;
+        const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+
+        formularioUsuario.style.display = 'none';
+        pinaculo.style.display = 'block';
+        nombreUsuario.textContent = `${nombre} ${apellidos}`;
+
+        const numerologia = calcularNumerologia(fechaNacimiento);
+        actualizarPinaculo(numerologia);
+
+        console.log('Esencia:', numerologia.esencia);
+        console.log('Karma:', numerologia.karma);
+        console.log('Talento:', numerologia.talento);
+        console.log('Programa:', numerologia.programa);
+    });
+});
+
+
+        </script>
+    </body>
+    </html>
